@@ -31,7 +31,6 @@ get()
             <li><a href="/">Home</a></li>
             <li><a href="/upload">Upload</a></li>
             <li><a href="/library">Library</a></li>
-
           </ul>
         </nav>
         <Routes>
