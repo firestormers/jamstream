@@ -35,7 +35,7 @@ get()
         </nav>
         <Routes>
           <Route path="/" element={<Home  data = {data} />}  />
-          <Route path="/upload" element={<Upload />} />
+          <Route path="/upload" element={<Upload  data = {data}  />} />
           <Route path="/library" element={<Library data = {data}  />} />
         </Routes>
       </div>
