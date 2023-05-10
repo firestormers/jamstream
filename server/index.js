@@ -33,6 +33,43 @@ app.use(express.json())
       });
   })
 
+  // Update a specific perfume
+
+app.put("/update/:id", (req, res) => {
+  const songId = req.params.id;
+  const q =
+    "UPDATE songs SET `title`= ?, `artist`= ?, `audio`= ?, `created_at`= ?  WHERE idsongs = ?";
+  const values = [
+    req.body.title,
+    req.body.artist,
+    req.body.audio,
+    req.body.created_at,
+  ];
+
+  db.query(q, [...values, songId], (err, data) => {
+    if (err) {
+      console.log(err);
+      return res.json(console.log(err), { error: "Failed to update song" });
+    }
+    return res.json({ message: "song updated successfully" });
+  });
+});
+
+// Delete a specific song
+
+app.delete("/delete/:id", (req, res) => {
+  const songId = req.params.id;
+  const q = "DELETE FROM songs WHERE idsongs = ?";
+  
+  db.query(q, [songId], (err, data) => {
+    if (err) {
+      console.log(err);
+      return res.json( console.log(err), { error: "Failed to delete song" });
+    }
+    return res.json({ message: "song deleted successfully" });
+  });
+});
+
 
   app.post("/register",(req,res)=>{
     const post =req.body; 
