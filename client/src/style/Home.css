@@ -1,9 +1,48 @@
 .biggie {
-    background-Color : rgb(204, 204, 204);
-    width : 190vh;
-    align-Items : center ;
-    justify-Content: 'center';
-    margin-Left : 30px
-  
-  
-  }
+  background-Color : rgb(204, 204, 204);
+  width : 190vh;
+  align-Items : center ;
+  justify-Content: 'center';
+  margin-Left : 30px
+
+
+}
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-left {
+  flex-basis: 50%;
+}
+
+.footer-right {
+  flex-basis: 50%;
+  margin-left: 60%;
+}
+
+.footer h3 {
+  color: #fff;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.footer p {
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.footer-bottom p {
+  font-size: 0.8rem;
+}
