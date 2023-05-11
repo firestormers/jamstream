@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import "../style/Upload.css"
 
-const Upload = (props) => {
+const Upload = () => {
   const [showForm, setShowForm] = useState(false)
   const [title, setTitle] = useState("")
   const [artist, setArtist] = useState("")
@@ -45,17 +45,8 @@ const Upload = (props) => {
 
   return (
     <div>
-      <nav>
-          <ul>
-            <li> 𝐉𝐚𝐦𝐒𝐭𝐫𝐞𝐚𝐦 </li>
-            <li><a href="/home">Home</a></li>
-            <li><a href="/upload">Upload</a></li>
-            <li><a href="/library">Library</a></li>
-            <li>Welcome {props.username}</li>
-          </ul>
-        </nav>
       {showForm && (
-        <div className="form-container">
+        <div className="form-container"  style ={{justifyContent:"center"}}>
           <form >
             <label htmlFor="title">Title:</label>
             <input type="text" id="title" name="title" value={title} onChange={(e) => setTitle(e.target.value)}  />
@@ -65,10 +56,10 @@ const Upload = (props) => {
 
             <label htmlFor="audio">Audio:</label>
             <input type="file" id="audio" name="audio" onChange={handleAudioChange} />
-
+            <br/>
             <label htmlFor="createdAt">Created At:</label>
             <input type="datetime-local" id="createdAt" value={createdAt} onChange={(e) => setCreatedAt(e.target.value)} />
-
+            <br/> 
             <label htmlFor="image">Image:</label>
             <input type="file" id="image" name="image"  onChange={handleImageChange} />
 
@@ -78,7 +69,7 @@ const Upload = (props) => {
           </form>
         </div>
       )}
-      <button onClick={() => setShowForm(true)}>Upload</button>
+      <button type ="button" id = "upload" onClick={() => setShowForm(true)}>Upload</button>
     </div>
   );
 };

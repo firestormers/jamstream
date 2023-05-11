@@ -21,19 +21,25 @@ function App(props) {
         backgroundPosition: 'center',
         height: '70vh',
       }}></div>
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' , marginTop : '50px' }}>
-        <input type="text" placeholder="Search for artists , bands , tracks ... " style={{ marginRight: '10px'  }} />
-        <button>Search</button>   
-      </div>
+     
   <h1 >Hear what’s trending in the JamStream community</h1>
 
-  <div style={{ width: '180px', height: '180px',marginLeft: '20px',  backgroundColor: 'black' , marginTop : "30px" }}>
-    
-    
-    
-
-
-  </div>
+  <footer className="footer">
+      <div className="footer-content">
+        <div className="footer-left">
+          <h3>About Us</h3>
+          <p>Developed by Malak Sboui, Imen Mekni & Arbi Moussi</p>
+        </div>
+        <div className="footer-right">
+          <h3>Contact Info</h3>
+          <p>Email: firestormers@gmail.com</p>
+          <p>Phone: (+216) 87888888</p>
+        </div>
+      </div>
+      <div className="footer-bottom">
+        <p>&copy; 2023 JamStream. All rights reserved.</p>
+      </div>
+    </footer>
 
    
 
