@@ -11,6 +11,7 @@
   background-color: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 100vh;
 }
 
 .form-container label {
@@ -30,14 +31,33 @@
   display: block;
   width: 100%;
   padding: 10px;
-  background-color: #555657;
+  background-color: #000000;
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  margin-left: 1vh;
+  margin-right: 2vh;
 }
 
 .form-container button[type="button"] {
-  background-color: #ccc;
-  margin-right: 10px;
+  background-color: #b6b6b6;
+  margin-right: 8px;
+}
+.upload {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+background-color: rgb(216, 216, 216);
+   background-Size: 'cover';
+    background-Position: 'center';
+  width : 190vh;
+  height: 190vh;
+  align-Items : center ;
+  justify-Content: 'center';
+  margin-Left : 30px
+}
+
+.uploadbutton {
+  margin-bottom: 140vh;
 }

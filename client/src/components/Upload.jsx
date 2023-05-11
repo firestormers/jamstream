@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import "../style/Upload.css"
-
+import disq from "../assets/music1.gif"
 const Upload = () => {
-  const [showForm, setShowForm] = useState(false)
+
   const [title, setTitle] = useState("")
   const [artist, setArtist] = useState("")
   const [audioUrl, setAudioUrl] = useState("")
@@ -42,34 +42,36 @@ const Upload = () => {
   const handleImageChange = e => {
     setImageUrl(e.target.files[0])
   }
+  
+
 
   return (
-    <div>
-      {showForm && (
-        <div className="form-container"  style ={{justifyContent:"center"}}>
-          <form >
-            <label htmlFor="title">Title:</label>
-            <input type="text" id="title" name="title" value={title} onChange={(e) => setTitle(e.target.value)}  />
+    <div   className='upload' >
 
-            <label htmlFor="artist">Artist:</label>
-            <input type="text" id="artist" name="artist" value={artist} onChange={(e) => setArtist(e.target.value)}  />
+   <div className="form-container"   >
+   <form >
+  <label htmlFor="title">Title:</label>
+   <input type="text" id="title" name="title" value={title} onChange={(e) => setTitle(e.target.value)}  />
 
-            <label htmlFor="audio">Audio:</label>
-            <input type="file" id="audio" name="audio" onChange={handleAudioChange} />
-            <br/>
-            <label htmlFor="createdAt">Created At:</label>
-            <input type="datetime-local" id="createdAt" value={createdAt} onChange={(e) => setCreatedAt(e.target.value)} />
+   <label htmlFor="artist">Artist:</label>
+  <input type="text" id="artist" name="artist" value={artist} onChange={(e) => setArtist(e.target.value)}  />
+
+  <label htmlFor="audio">Audio:</label>
+    <input type="file" id="audio" name="audio" onChange={handleAudioChange} />
+     <br/>
+     <label htmlFor="createdAt">Created At:</label>
+     <input type="datetime-local" id="createdAt" value={createdAt} onChange={(e) => setCreatedAt(e.target.value)} />
             <br/> 
-            <label htmlFor="image">Image:</label>
-            <input type="file" id="image" name="image"  onChange={handleImageChange} />
+  <label htmlFor="image">Image:</label>
+   <input type="file" id="image" name="image"  onChange={handleImageChange} />
 
        
-            <button type="submit" onClick={handleSubmit}  >Submit</button>
-            <button type="button" onClick={() => setShowForm(false)}>Cancel</button>
-          </form>
+  <button type="submit" onClick={handleSubmit}  >Submit</button>
+   
+     </form>
         </div>
-      )}
-      <button type ="button" id = "upload" onClick={() => setShowForm(true)}>Upload</button>
+    
+    
     </div>
   );
 };
