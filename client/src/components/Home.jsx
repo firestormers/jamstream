@@ -1,10 +1,20 @@
-import React from 'react';
 import background from '../assets/background.jpg';
+import React , {useEffect , useState } from "react"
 import '../style/Home.css'
-function App({data}) {
-  console.log(data);
+function App(props) {
+  console.log(props.username);
+  
   return (
     <div className='biggie'>
+        <nav>
+          <ul>
+            <li> 𝐉𝐚𝐦𝐒𝐭𝐫𝐞𝐚𝐦 </li>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/upload">Upload</a></li>
+            <li><a href="/library">Library</a></li>
+            <li>Welcome {props.username}</li>
+          </ul>
+        </nav>
       <div style={{
         backgroundImage: `url(${background})`,
         backgroundSize: 'cover',
