@@ -4,8 +4,11 @@ import { BrowserRouter,  Route , Routes } from 'react-router-dom';
 import Upload from "./components/Upload.jsx"
 import Library from "./components/Library.jsx"
 import Home from './components/Home.jsx';
+import Siginup from "./Siginup.jsx";
+import Register from "./Register.jsx"
 import axios from 'axios'
-function App() {
+
+function App(props) {
   const [data , setData ] = useState([])
 const get = () => {
 axios.get("http://localhost:4000/get" )
@@ -22,21 +25,20 @@ get()
 },[])
 
 
-  return (
+
+return (
     <BrowserRouter>
  <div className="App" >
-        <nav>
-          <ul>
-            <li> 𝐉𝐚𝐦𝐒𝐭𝐫𝐞𝐚𝐦 </li>
-            <li><a href="/">Home</a></li>
-            <li><a href="/upload">Upload</a></li>
-            <li><a href="/library">Library</a></li>
-          </ul>
-        </nav>
+      
         <Routes>
-          <Route path="/" element={<Home  data = {data} />}  />
+          <Route path="/home" element={<Home  data = {data} username={props.username} />}  />
           <Route path="/upload" element={<Upload  data = {data}  />} />
           <Route path="/library" element={<Library data = {data}  />} />
+          <Route path="/" element={<Siginup   />} />
+          <Route path="/register" element={<Register data = {data}  />} />
+
+
+  
         </Routes>
       </div>
     </BrowserRouter>
