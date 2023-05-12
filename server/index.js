@@ -1,5 +1,3 @@
-
-
 const express = require("express");
 const app = express();
 const PORT = 4000;
@@ -58,7 +56,6 @@ app.put("/update/:id", (req, res) => {
 });
 
 // Delete a specific song
-
 app.delete("/delete/:id", (req, res) => {
   const songId = req.params.id;
   const q = "DELETE FROM songs WHERE idsongs = ?";
@@ -73,6 +70,9 @@ app.delete("/delete/:id", (req, res) => {
 });
 
 
+
+
+//create a new user and save information
   app.post("/register",(req,res)=>{
     const post =req.body; 
     console.log(post)
@@ -83,6 +83,7 @@ app.delete("/delete/:id", (req, res) => {
       });
   })
 
+  //login with user exist
   app.post("/login",(req,res)=>{
     const post =req.body; 
     console.log(post)
@@ -96,8 +97,11 @@ app.delete("/delete/:id", (req, res) => {
       });
   })
 
+
+
+
+//delete a compte 
   app.get("/user", (req, res) => {
-  
     db.query("SELECT * FROM user", (err, data) => {
       if (err) {
         console.log(err);
@@ -108,6 +112,15 @@ app.delete("/delete/:id", (req, res) => {
       }
     });
   });
+
+  app.delete("/user/:id",(req,res)=>{ 
+    db.query(`DELETE FROM user WHERE iduser=${req.params.id}`,
+     (error,  results) => {
+       if (error) return res.json({ error: error });
+        res.json('Deleted')
+       });
+      
+   })
 
 
 app.listen(PORT, () => {

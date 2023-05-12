@@ -1,16 +1,10 @@
 import './style/App.css';
-import React , {useEffect , useState } from "react"
+import React , { useState } from "react"
 import { useNavigate } from "react-router-dom";
 import Axios from 'axios'
 import './style/log.css';
 
-
-
-
-
-
-
-function Regis() {
+function Regis(props) {
     const [email, setEmail] = useState('');
     const [registerstatus, setregisterstatus] = useState('');
     const [password1, setPassword1] = useState('');
@@ -24,7 +18,10 @@ function Regis() {
         Axios.post("http://localhost:4000/register",{username:username1,password:password1,email:email})
     .then((response)=>{
 if (response.data.message){setregisterstatus(response.data.message)}
-else {navigate('/home')}
+else {
+    props.change(); 
+    props.users(username1)
+    navigate('/home')}
 
     })
 }

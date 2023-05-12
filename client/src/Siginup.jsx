@@ -1,36 +1,34 @@
-import React , {useEffect , useState } from "react"
+import React , { useState } from "react"
 import Axios from 'axios'
 import { useNavigate } from "react-router-dom";
 import './style/log.css';
-import Upload from "./components/Upload.jsx"
-import Library from "./components/Library.jsx"
-import Home from './components/Home.jsx';
 import App from "./App.jsx";
 
 
-function Siginup() {
+function Siginup(props) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [loginstatus, setloginstatus] = useState('');
     const navigate = useNavigate();
+
+    
 
     const login=(e)=>{
         e.preventDefault();
         Axios.post("http://localhost:4000/login",{username:username,password:password})
     .then((response)=>{
 if (response.data.message){setloginstatus(response.data.message)}
-else {navigate('/home')
+else {
+    props.change(); 
+    props.users(username)
+    navigate('/home')
 }
 })
 }
-console.log(username)
 return (
         <div>
            {false && <div>
             <App username={username} />
-      {/* <Library username={username} />
-      <Upload username={username} /> */}
-
     </div>}
 <div class="wrapper">
 <form class="p-3 mt-3">
