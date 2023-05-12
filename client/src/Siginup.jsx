@@ -30,15 +30,15 @@ return (
            {false && <div>
             <App username={username} />
     </div>}
-<div class="wrapper">
-<form class="p-3 mt-3">
-    <div class="text-center mt-4 name"> </div>
-<input class="form-field d-flex align-items-center" id="username" placeholder="Username" defaultValue={username}  onChange={(event)=>setUsername(event.target.value)}></input>
-<input class="form-field d-flex align-items-center"type="password" id="password" placeholder="Password" defaultValue={password}  onChange={(event)=>setPassword(event.target.value)}></input>
-<button class="login-but" type="submit" onClick={login} >Log In</button>
+<div className="wrapper">
+<form className="p-3 mt-3">
+    <div className="text-center mt-4 name"> </div>
+<input className="form-field d-flex align-items-center" id="username" placeholder="Username" defaultValue={username}  onChange={(event)=>setUsername(event.target.value)}></input>
+<input className="form-field d-flex align-items-center"type="password" id="password" placeholder="Password" defaultValue={password}  onChange={(event)=>setPassword(event.target.value)}></input>
+<button className="login-but" type="submit" onClick={login} >Log In</button>
 {  <div><h3>{loginstatus}</h3></div>} 
 </form>
-<div class="text-center fs-6">
+<div className="text-center fs-6">
 <a href="/register">Create compte</a>
         </div>
 

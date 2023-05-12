@@ -29,13 +29,13 @@ else {
 
 
     return (
-        <div class="wrapper">
- <form class="p-3 mt-3"id="signup-form">
+        <div className="wrapper">
+ <form className="p-3 mt-3"id="signup-form">
  <h3>if you don't have a compte you should create </h3>
- <input  class="form-field d-flex align-items-center" placeholder="Username" defaultValue={username1}  onChange={(event)=>setUsername1(event.target.value)}></input>
- <input class="form-field d-flex align-items-center"type="email" id="email" placeholder="Email" defaultValue={email}  onChange={(event)=>setEmail(event.target.value)}></input>
- <input  class="form-field d-flex align-items-center"type="password" id="password" placeholder="Password" defaultValue={password1}  onChange={(event)=>setPassword1(event.target.value)}></input>
- <input class="form-field d-flex align-items-center"type="password" id="confirm-password" placeholder="Confirm Password"></input>
+ <input  className="form-field d-flex align-items-center" placeholder="Username" defaultValue={username1}  onChange={(event)=>setUsername1(event.target.value)}></input>
+ <input className="form-field d-flex align-items-center"type="email" id="email" placeholder="Email" defaultValue={email}  onChange={(event)=>setEmail(event.target.value)}></input>
+ <input  className="form-field d-flex align-items-center"type="password" id="password" placeholder="Password" defaultValue={password1}  onChange={(event)=>setPassword1(event.target.value)}></input>
+ <input className="form-field d-flex align-items-center"type="password" id="confirm-password" placeholder="Confirm Password"></input>
  <button type="submit" onClick={register}>Sign Up</button>
  {  <div><h3>{registerstatus}</h3></div>}
  </form> 

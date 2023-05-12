@@ -48,7 +48,7 @@ return (
             <li><Link  to="/home">Home</Link ></li>
             <li><Link  to="/upload"> 🎙️ Upload</Link ></li>
             <li><Link  to="/library">  🎧  Library </Link ></li>
-            {isLoggedIn &&<li>welcome to our web site {d}</li>}
+            {isLoggedIn &&<p style={{color : "white" , textalign : "left"}} > Welcome to JamStream {d}</p>}
 
           </ul>
         </nav>
