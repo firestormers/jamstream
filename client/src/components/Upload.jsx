@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import "../style/Upload.css"
-import disq from "../assets/music1.gif"
+
 const Upload = () => {
 
   const [title, setTitle] = useState("")

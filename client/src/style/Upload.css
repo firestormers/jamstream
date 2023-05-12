@@ -3,6 +3,7 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+  width:  200.9vh;;
 }
 
 .form-container {
@@ -11,7 +12,7 @@
   background-color: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 100vh;
+  margin-bottom: 80vh;
 }
 
 .form-container label {
@@ -51,11 +52,11 @@
 background-color: rgb(216, 216, 216);
    background-Size: 'cover';
     background-Position: 'center';
-    width : 196vh;
+  width:  200.9vh;
   height: 190vh;
   align-Items : center ;
   justify-Content: 'center';
-  margin-Left : 30px
+  margin-Left : 22px
 }
 
 .uploadbutton {
