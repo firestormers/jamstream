@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `jamstream`.`user` (
   `username` VARCHAR(45) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
-  
+  `feedback` VARCHAR(255) NULL DEFAULT NULL,
   PRIMARY KEY (`iduser`),
   UNIQUE INDEX `username_UNIQUE` (`username` ASC) VISIBLE,
   UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE,

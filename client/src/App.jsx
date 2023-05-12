@@ -7,6 +7,7 @@ import Home from './components/Home.jsx';
 import Siginup from "./Siginup.jsx";
 import Register from "./Register.jsx"
 import axios from 'axios'
+import Chat from './components/chat';
 
 function App(props) {
   const [data , setData ] = useState([])
@@ -48,6 +49,7 @@ return (
             <li><Link  to="/home">Home</Link ></li>
             <li><Link  to="/upload"> 🎙️ Upload</Link ></li>
             <li><Link  to="/library">  🎧  Library </Link ></li>
+            <li ><a href="/chat">   💬 Chat   </a></li>
             {isLoggedIn &&<p style={{color : "white" , textalign : "left"}} > Welcome to JamStream {d}</p>}
 
           </ul>
@@ -59,6 +61,7 @@ return (
          <Route path="/home" element={<Home  data = {data} username={props.username} />}  />
          <Route path="/upload" element={<Upload  data = {data}  />} />
          <Route path="/library" element={<Library data = {data}  />} /> </>}
+         <Route path="/chat" element={<Chat  />}/>
          <Route path="/" element={<Siginup  change={change} users={users} />} />
          <Route path="/register" element={<Register change={change} users={users} />} />
        </Routes>
