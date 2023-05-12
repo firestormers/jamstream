@@ -1,10 +1,11 @@
 import background from '../assets/background.jpg';
 import React , {useEffect , useState } from "react"
-import background3 from '../assets/rr.jpg';
+import background3 from '../assets/nirv.jpg';
 import background4 from '../assets/pinkfloyd.jpg';
 import wee from "../assets/wee.jpg"
 import background6 from '../assets/ff.jpg';
 import '../style/Home.css';
+
 
 function App(props) {
   const [imageI, setimageI] = useState(0);

@@ -31,29 +31,29 @@ app.use(express.json())
       });
   })
 
-  // Update a specific perfume
 
-app.put("/update/:id", (req, res) => {
-  const songId = req.params.id;
+
+// app.put("/update/:id", (req, res) => {
+//   const songId = req.params.id;
   
-  const q = "UPDATE songs SET `title`= ?, `artist`= ?, `audio`= ?, `created_at`= ?, `image` = ? WHERE idsongs = ?";
+//   const q = "UPDATE songs SET `title`= ?, `artist`= ?, `audio`= ?, `created_at`= ?, `image` = ? WHERE idsongs = ?";
 
-  const values = [
-    req.body.title,
-    req.body.artist,
-    req.body.audio,
-    req.body.created_at,
-    req.body.image,
-  ];
+//   const values = [
+//     req.body.title,
+//     req.body.artist,
+//     req.body.audio,
+//     req.body.created_at,
+//     req.body.image,
+//   ];
 
-  db.query(q, [...values, songId], (err, data) => {
-    if (err) {
-      console.log(err);
-      return res.send("error")
-    }
-    return res.send("updated")
-  });
-});
+//   db.query(q, [...values, songId], (err, data) => {
+//     if (err) {
+//       console.log(err);
+//       return res.send("error")
+//     }
+//     return res.send("updated")
+//   });
+// });
 
 // Delete a specific song
 app.delete("/delete/:id", (req, res) => {
@@ -121,6 +121,31 @@ app.delete("/delete/:id", (req, res) => {
        });
       
    })
+   app.post('/like/:songId', (req, res) => {
+    const songId = req.params.songId;
+    db.query(`UPDATE songs SET likes = likes + 1 WHERE idsongs = ${songId}`, (err, result) => {
+      if (err) {
+        console.error(err)
+      } else {
+        const liked = result.affectedRows === 1
+        res.send({liked});
+      }
+    });
+  });
+  
+  
+  // app.get('/likes/:songId', (req, res) => {
+  //   const songId = req.params.songId;
+  //   db.query(`SELECT likes FROM songs WHERE idsongs = ${songId}`, (err, result) => {
+  //     if (err) {
+  //       console.error(err);
+  //       return res.send('Error retrieving likes');
+  //     } else {
+  //       return res.send(result);
+  //     }
+  //   });
+  // });
+  
 
 
 app.listen(PORT, () => {
