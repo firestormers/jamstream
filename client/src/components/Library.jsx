@@ -1,37 +1,68 @@
-const Library = ({data}) => {
-    console.log(data);
-  
-    return (
-      <div>
-          <nav>
-          <ul>
-            <li> 𝐉𝐚𝐦𝐒𝐭𝐫𝐞𝐚𝐦 </li>
-            <li><a href="/home">Home</a></li>
-            <li><a href="/upload">Upload</a></li>
-            <li><a href="/library">Library</a></li>
-            <li>Welcome {}</li>
-          </ul>
-        </nav>
-        {data.map((e) => {
-          return (
-            <div
-              style={{
-                width: '180px',
-                height: '180px',
-                marginLeft: '30px',
-                marginTop: '30px',
-              }}
-            >
-              <img src={e.image} alt="album cover" />
-              <p>title: {e.title}</p>
-              <p>artist: {e.artist}</p>
-              <audio src={e.audio} controls></audio>
-            </div>
-          );
-        })}
-      </div>
-    );
+
+import axios from "axios";
+import "../style/Library.css";
+import { useState } from "react";
+import AudioBar from "./Audiobar.jsx";
+import Home from "./Home.jsx"
+const Library = ({data , setData  }) => {
+  const [showAudioBar, setShowAudioBar] = useState(false);
+  const [audioBarData, setAudioBarData] = useState(null);
+  const [search , setSearch] = useState("")
+  const handleDelete = (songId) => {
+    axios.delete(`http://localhost:4000/delete/${songId}`)
+      .then(() => {
+        const updatedSongs= data.filter(item=> item.idsongs !== songId)
+        setData(updatedSongs)
+      })
+      .catch(error => console.error(error))
+  };  
+
+  const handlePlay = (songId) => {
+    const song = data.find(item => item.idsongs === songId);
+    setAudioBarData(song);
+    setShowAudioBar(true);
   };
   
-  export default Library;
-  
+  return (
+
+
+
+
+    <div  className='bigg'>
+ 
+
+{/* <div className="search-container" >
+<input type="text" placeholder="Search for Tracks"  value={search} onChange={(e) => setSearch(e.target.value)} />
+
+</div> */}
+
+      {data.filter((song) => song.title.toLowerCase().includes(search.toLowerCase()))
+      .map((e) => {
+        return (
+          
+          <div className="library-item">
+           
+            <img src={e.image} alt="album cover" />
+             <p> {e.artist}</p>
+            <p> {e.title}</p>
+            <button className="play"  onClick={() => handlePlay(e.idsongs)}>▶</button>
+            <button className="delete-btn" onClick={() => handleDelete(e.idsongs)}>Delete</button>
+             
+          </div>
+         
+        );
+      })}
+      {showAudioBar && (
+        <div className="audio-bar-container">
+          <AudioBar song={audioBarData} onClose={() => setShowAudioBar(false)} />
+        </div>
+      )}
+
+
+      
+    </div>
+ 
+  );
+};
+
+export default Library;

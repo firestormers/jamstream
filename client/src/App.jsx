@@ -27,22 +27,34 @@ get()
 
 
 return (
-    <BrowserRouter>
- <div className="App" >
-      
-        <Routes>
-          <Route path="/home" element={<Home  data = {data} username={props.username} />}  />
-          <Route path="/upload" element={<Upload  data = {data}  />} />
-          <Route path="/library" element={<Library data = {data}  />} />
-          <Route path="/" element={<Siginup   />} />
-          <Route path="/register" element={<Register data = {data}  />} />
+<BrowserRouter>
+
+     
+
+<div className="App" >
+        <nav>
+          <ul>
+            <li> 🎹  𝐉𝐚𝐦𝐒𝐭𝐫𝐞𝐚𝐦    </li>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/upload"> 🎙️ Upload</a></li>
+            <li><a href="/library">  🎧  Library </a></li>
+          </ul>
+        </nav>
 
 
-  
-        </Routes>
-      </div>
-    </BrowserRouter>
+       <Routes>
+         <Route path="/home" element={<Home  data = {data} username={props.username} />}  />
+         <Route path="/upload" element={<Upload  data = {data}  />} />
+         <Route path="/library" element={<Library data = {data}  />} />
+         <Route path="/" element={<Siginup   />} />
+         <Route path="/register" element={<Register data = {data}  />} />
+
+
  
+       </Routes>
+     </div>
+   </BrowserRouter>
+
   );
 }
 

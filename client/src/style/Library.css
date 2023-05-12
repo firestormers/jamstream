@@ -1,0 +1,152 @@
+
+.bigg {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  background-color: rgb(216, 216, 216);
+     background-Size: 'cover';
+      background-Position: 'center';
+    width : 190vh;
+    height: 190vh;
+    align-Items : center ;
+    justify-Content: 'center';
+    margin-Left : 30px
+  }
+  
+  .library-item {
+    width: 170px;
+    height: 170px;
+    margin: 20px;
+    position: relative;
+    text-align: center;
+  }
+  
+  .library-item img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .library-item p {
+    margin: 5px;
+    color: #333;
+    align-items: left;
+  }
+  
+  .library-item .title {
+    color: #333;
+  }
+  
+  .play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+
+  }
+  
+  .library-item:hover button {
+    opacity: 1;
+  }
+  
+  
+  .audio-bar-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    padding: 3px 0;
+    box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+  
+  .audio-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .audio-bar audio {
+    width: 800px;
+    margin: 0 10px;
+  }
+  
+  .audio-bar button {
+    background-color: #fff;
+    color: #929292;
+    border: 1px solid #a0a0a0;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .audio-bar button:hover {
+    background-color: #808080;
+    color: #fff;
+  }
+  
+  .library-item:hover img {
+    opacity: 0.7;
+  }
+  
+  .library-item:hover button {
+    opacity: 1;
+    z-index: 1;
+  }
+  
+  .library-item .play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+  }
+  
+  .library-item:hover .play-button {
+    opacity: 1;
+    z-index: 1;
+  }
+  
+  .delete-btn {
+    background-color: #1c1c1c;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .delete-btn:hover {
+    background-color: #ff0000;
+  }
+
+.play{
+
+
+  border-radius: 40%;
+}
+
+body {
+
+
+  background-color: #ffffff;
+  }
