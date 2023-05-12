@@ -1,6 +1,6 @@
 .biggie {
   background-Color : rgb(184, 184, 184);
-  width : 196vh;
+  width : 190vh;
   align-Items : center ;
   justify-Content: 'center';
   margin-Left : 30px
@@ -94,21 +94,18 @@
 .library-item .title {
   color: #333;
 }
+
 .song-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 50px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
 }
 
 .song-info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: calc(50% - 20px);
-  margin-bottom: 40px;
+  padding: 10px;
+  box-sizing: border-box;
 }
+
 
 .song-info img {
   width: 150px;

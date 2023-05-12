@@ -132,6 +132,38 @@ app.delete("/delete/:id", (req, res) => {
       }
     });
   });
+    //feedback request
+    app.post("/feedback", (req, res) => {
+      const { userId, feedback } = req.body;
+    
+      const q = "INSERT INTO user (iduser, feedback) VALUES (?, ?)";
+    
+      db.query(q, [userId, feedback], (err, data) => {
+        if (err) {
+          console.log(err);
+          return res.send("error");
+        }
+        return res.send("Feedback added successfully");
+      });
+    });
+    
+    //update feedback
+    
+    app.put("/feedback/:id", (req, res) => {
+      const feedbackId = req.params.id;
+      const newFeedback = req.body.feedback;
+    
+      const q = "UPDATE user SET feedback = ? WHERE iduser = ?";
+    
+      db.query(q, [newFeedback, feedbackId], (err, data) => {
+        if (err) {
+          console.log(err);
+          return res.send("error");
+        }
+        return res.send("Feedback updated successfully");
+      });
+    });
+    
   
   
   // app.get('/likes/:songId', (req, res) => {

@@ -1,11 +1,18 @@
+
 import background from '../assets/background.jpg';
 import React , {useEffect , useState } from "react"
-import background3 from '../assets/nirv.jpg';
+import background3 from '../assets/rr.jpg';
 import background4 from '../assets/pinkfloyd.jpg';
 import wee from "../assets/wee.jpg"
+import gasoline from "../assets/gasoline.jpg"
+import venom  from "../assets/venom.jpg"
+import pianoJoel from "../assets/pianoJoel.jpg"
+import baby from "../assets/baby.jpg"
+import stromae from "../assets/stromae.jpg"
+import bishop from "../assets/Bishop.jpg"
+import alan from "../assets/alan.jpg"
 import background6 from '../assets/ff.jpg';
 import '../style/Home.css';
-
 
 function App(props) {
   const [imageI, setimageI] = useState(0);
@@ -29,19 +36,10 @@ function App(props) {
           backgroundImage: `url(${images[imageI]})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          height: '70vh',
+          height: '80vh',
 
         }}>
-       
-
-
-
-     
-
-
-
-
-        </div>
+      </div>
       <h1>Hear what’s trending in the JamStream community</h1>
 
 
@@ -49,22 +47,50 @@ function App(props) {
       <div className='song-container'>
   <div className='song-info'>
     <img src={wee}/>
-    <h2></h2>
+    <h2>The weeknd</h2>
+    <h3></h3>
     <p></p>
   </div>
   <div className='song-info'>
-    <img src="" />
-    <h2></h2>
+    <img src={gasoline}/>
+    <h2>Halsey</h2>
+    <h3> </h3>
     <p></p>
   </div>
   <div className='song-info'>
-    <img src="" />
-    <h2></h2>
+    <img src={venom} />
+    <h2>Eminem</h2>
+    <h3></h3>
     <p></p>
   </div>
   <div className='song-info'>
-    <img src="" />
-    <h2></h2>
+    <img src={pianoJoel} />
+    <h2>Billy Joel</h2>
+    <h3></h3>
+    <p></p>
+  </div>
+  <div className='song-info'>
+    <img src={baby}/>
+    <h2>Lana Del Ray</h2>
+    <h3>  </h3>
+    <p></p>
+  </div>
+  <div className='song-info'>
+    <img src={bishop}/>
+    <h2>bishop briggs</h2>
+    <h3> </h3>
+    <p></p>
+  </div>
+  <div className='song-info'>
+    <img src={alan}/>
+    <h2>Alan Walker</h2>
+    <h3> </h3>
+    <p></p>
+  </div>
+  <div className='song-info'>
+    <img src={stromae}/>
+    <h2>Stromae</h2>
+    <h3>  </h3>
     <p></p>
   </div>
 </div>
