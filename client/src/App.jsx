@@ -49,7 +49,7 @@ return (
             <li><Link  to="/home">Home</Link ></li>
             <li><Link  to="/upload"> 🎙️ Upload</Link ></li>
             <li><Link  to="/library">  🎧  Library </Link ></li>
-            <li ><a   href="/chat">   💬 Chat   </a></li>
+            <li ><Link   to="/chat">   💬 Chat   </Link></li>
             {isLoggedIn &&<p style={{color : "white" , textalign : "left"}} > welcome {d}</p>}
 
           </ul>
@@ -60,8 +60,8 @@ return (
        {isLoggedIn &&    <> 
          <Route path="/home" element={<Home  data = {data} username={props.username} />}  />
          <Route path="/upload" element={<Upload  data = {data}  />} />
-         <Route path="/library" element={<Library data = {data}  />} /> </>}
-         <Route path="/chat" element={<Chat  />}/>
+         <Route path="/library" element={<Library data = {data}  />} /> 
+         <Route path="/chat" element={<Chat username={d} />}/></>}
          <Route path="/" element={<Siginup  change={change} users={users} />} />
          <Route path="/register" element={<Register change={change} users={users} />} />
        </Routes>
