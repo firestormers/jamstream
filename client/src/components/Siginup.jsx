@@ -1,8 +1,8 @@
 import React , { useState } from "react"
 import Axios from 'axios'
 import { useNavigate } from "react-router-dom";
-import './style/log.css';
-import App from "./App.jsx";
+import '../style/log.css';
+import App from "../App.jsx";
 
 
 function Siginup(props) {

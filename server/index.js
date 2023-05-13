@@ -164,7 +164,21 @@ app.delete("/delete/:id", (req, res) => {
       });
     });
     
-  
+  // delete feedback
+ app.delete("/feedback/:id", (req, res) => {
+  const feedbackId = req.params.id;
+
+  const q = "DELETE FROM user WHERE iduser = ?";
+
+  db.query(q, [feedbackId], (err, data) => {
+    if (err) {
+      console.log(err);
+      return res.send("error");
+    }
+    return res.send("Feedback deleted successfully");
+  });
+});
+
   
   // app.get('/likes/:songId', (req, res) => {
   //   const songId = req.params.songId;

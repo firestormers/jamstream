@@ -56,9 +56,15 @@ background-color: rgb(216, 216, 216);
   height: 190vh;
   align-Items : center ;
   justify-Content: 'center';
-  margin-Left : 22px
-}
+  margin-Left : 22px;
+  }
 
 .uploadbutton {
   margin-bottom: 140vh;
+}
+.add {
+
+  margin-top: 38vh;
+  border-radius: 40px;
+  
 }

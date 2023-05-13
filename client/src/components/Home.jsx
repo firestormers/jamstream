@@ -2,7 +2,7 @@
 import React , {useEffect , useState } from "react"
 import { Link } from 'react-router-dom';
 import background3 from '../assets/nirv.jpg';
-import background4 from '../assets/pinkfloyd.jpg';
+
 import wee from "../assets/wee.jpg"
 import gasoline from "../assets/gasoline.jpg"
 import venom  from "../assets/venom.jpg"
@@ -15,12 +15,13 @@ import '../style/Home.css';
 import background2 from '../assets/ddd.png';
 import background6 from '../assets/fff.jpg';
 import background7 from '../assets/c.jpg';
+import background4 from '../assets/pinkfloyd.jpg';
 import Library from "./Library";
 // import img from "../assets/oo.jpg"
 
-function App(props) {
+function App() {
   const [imageI, setimageI] = useState(0);
-  const images = [background2,background3, background4, background6,background7];
+  const images = [background2,background3, background6,background7, background4];
 
 
   useEffect(() => {

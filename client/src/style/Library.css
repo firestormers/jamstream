@@ -13,7 +13,7 @@ background-color: rgb(216, 216, 216);
   margin-Left : 22px
 }
 
-.library-item {
+.songs {
   width: 170px;
   height: 170px;
   margin: 20px;
@@ -21,20 +21,20 @@ background-color: rgb(216, 216, 216);
   text-align: center;
 }
 
-.library-item img {
+.songs img {
   width: 100%;
   height: 170px;
   object-fit: cover;
   display: block;
 }
 
-.library-item p {
+.songs p {
   margin: 5px;
   color: #333;
   align-items: left;
 }
 
-.library-item .title {
+.songs .title {
   color: #333;
 }
 
@@ -55,12 +55,12 @@ background-color: rgb(216, 216, 216);
 
 }
 
-.library-item:hover button {
+.songs:hover button {
   opacity: 1;
 }
 
 
-.audio-bar-container {
+.audio {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -74,18 +74,18 @@ background-color: rgb(216, 216, 216);
   z-index: 1000;
 }
 
-.audio-bar {
+.audio {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.audio-bar audio {
+.audio audio {
   width: 800px;
   margin: 0 10px;
 }
 
-.audio-bar button {
+.audio button {
   background-color: #fff;
   color: #929292;
   border: 1px solid #a0a0a0;
@@ -96,21 +96,21 @@ background-color: rgb(216, 216, 216);
   transition: all 0.3s ease;
 }
 
-.audio-bar button:hover {
+.audio button:hover {
   background-color: #808080;
   color: #fff;
 }
 
-.library-item:hover img {
+.songs:hover img {
   opacity: 0.7;
 }
 
-.library-item:hover button {
+.songs:hover button {
   opacity: 1;
   z-index: 1;
 }
 
-.library-item .play-button {
+.songs .play-button {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -120,12 +120,12 @@ background-color: rgb(216, 216, 216);
   transition: opacity 0.2s ease-in-out;
 }
 
-.library-item:hover .play-button {
+.songs:hover .play-button {
   opacity: 1;
   z-index: 1;
 }
 
-.delete-btn {
+.delete {
   background-color: #1c1c1c;
   color: #fff;
   border: none;
@@ -151,7 +151,7 @@ background-color: rgb(216, 216, 216);
 
 
 
-.delete-btn:hover {
+.delete:hover {
   background-color: #ff0000;
 }
 
@@ -180,7 +180,7 @@ background-color: rgb(216, 216, 216);
   transition: opacity 0.2s ease-in-out;
 }
 
-.search-container {
+.search{
 
 background-color: rgb(216, 216, 216);
 
@@ -191,4 +191,8 @@ margin-right: 7px;
 .input{
 
   width: 80px;
+}
+.close {
+
+  margin-top: 20px;
 }
