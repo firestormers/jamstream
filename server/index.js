@@ -136,12 +136,12 @@ app.delete("/delete/:id", (req, res) => {
     app.post("/feedback", (req, res) => {
       const { userId, feedback } = req.body;
     
-      const q = "INSERT INTO user (iduser, feedback) VALUES (?, ?)";
+      const q = "INSERT INTO user (feedback) VALUES (?)";
     
       db.query(q, [userId, feedback], (err, data) => {
         if (err) {
           console.log(err);
-          return res.send("error");
+          return res.send(err);
         }
         return res.send("Feedback added successfully");
       });

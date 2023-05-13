@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../style/chat.css';
 
-const Feedback = () => {
+const Feedback = (props) => {
   const [messages, setMessages] = useState([]);
   const [inputText, setInputText] = useState('');
 
@@ -67,6 +67,8 @@ const Feedback = () => {
         {messages.map((message) => (
           <div className="message" key={message.id}>
             <p>{message.text}</p>
+            <br></br>
+            <p>By {props.username}</p>
             <button
               className="edit-button"
               onClick={() => {
