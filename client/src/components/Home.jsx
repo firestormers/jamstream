@@ -1,7 +1,7 @@
 
-import background from '../assets/background.jpg';
 import React , {useEffect , useState } from "react"
-import background3 from '../assets/rr.jpg';
+import { Link } from 'react-router-dom';
+import background3 from '../assets/nirv.jpg';
 import background4 from '../assets/pinkfloyd.jpg';
 import wee from "../assets/wee.jpg"
 import gasoline from "../assets/gasoline.jpg"
@@ -11,12 +11,17 @@ import baby from "../assets/baby.jpg"
 import stromae from "../assets/stromae.jpg"
 import bishop from "../assets/Bishop.jpg"
 import alan from "../assets/alan.jpg"
-import background6 from '../assets/ff.jpg';
 import '../style/Home.css';
+import background2 from '../assets/ddd.png';
+import background6 from '../assets/fff.jpg';
+import background7 from '../assets/c.jpg';
+import Library from "./Library";
+// import img from "../assets/oo.jpg"
 
 function App(props) {
   const [imageI, setimageI] = useState(0);
-  const images = [background3, background4, background6];
+  const images = [background2,background3, background4, background6,background7];
+
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -36,65 +41,80 @@ function App(props) {
           backgroundImage: `url(${images[imageI]})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          height: '80vh',
+          height: '75vh',
 
         }}>
       </div>
-      <h1>Hear what’s trending in the JamStream community</h1>
 
+      <h1 className="trending-title">Discover what's Trending</h1>
 
-
-      <div className='song-container'>
-  <div className='song-info'>
-    <img src={wee}/>
-    <h2>The weeknd</h2>
-    <h3></h3>
-    <p></p>
+      <div class='song-container'>
+  <div class='song-info'>
+  <Link  to="/Library">
+    <img src={wee} alt='The Weeknd'/>
+    </Link >
+    <h2>The Weeknd</h2>
+    <h3>Blinding Lights</h3>
+    <p>Album: After Hours</p>
   </div>
-  <div className='song-info'>
-    <img src={gasoline}/>
+  <div class='song-info'>
+  <Link  to="/Library">
+    <img src={gasoline} alt='Halsey'/>
+    </Link>
     <h2>Halsey</h2>
-    <h3> </h3>
-    <p></p>
+    <h3>Gasoline</h3>
+    <p>Album: Badlands</p>
   </div>
-  <div className='song-info'>
-    <img src={venom} />
+  <div class='song-info'>
+  <Link  to="/Library">
+    <img src={venom} alt='Eminem'/>
+    </Link>
     <h2>Eminem</h2>
-    <h3></h3>
-    <p></p>
+    <h3>Venom</h3>
+    <p>Album: Kamikaze</p>
   </div>
-  <div className='song-info'>
-    <img src={pianoJoel} />
+  <div class='song-info'>
+  <Link  to="/Library">
+    <img src={pianoJoel} alt='Billy Joel'/>
+    </Link>
     <h2>Billy Joel</h2>
-    <h3></h3>
-    <p></p>
+    <h3>Piano Man</h3>
+    <p>Album: Piano Man</p>
   </div>
-  <div className='song-info'>
-    <img src={baby}/>
+  <div class='song-info'>
+  <Link  to="/Library">
+    <img src={baby} alt='Lana Del Ray'/>
+    </Link>
     <h2>Lana Del Ray</h2>
-    <h3>  </h3>
-    <p></p>
+    <h3>Video Games</h3>
+    <p>Album: Born to Die</p>
   </div>
-  <div className='song-info'>
-    <img src={bishop}/>
-    <h2>bishop briggs</h2>
-    <h3> </h3>
-    <p></p>
+  <div class='song-info'>
+  <Link  to="/Library">
+    <img src={bishop} alt='Bishop Briggs'/>
+    </Link>
+    <h2>Bishop Briggs</h2>
+    <h3>River</h3>
+    <p>Album: Church of Scars</p>
   </div>
-  <div className='song-info'>
-    <img src={alan}/>
+  <div class='song-info'>
+  <Link  to="/Library">
+    <img src={alan} alt='Alan Walker'/>
+    </Link>
     <h2>Alan Walker</h2>
-    <h3> </h3>
-    <p></p>
+    <h3>Faded</h3>
+    <p>Album: Different World</p>
   </div>
-  <div className='song-info'>
-    <img src={stromae}/>
+  <div class='song-info'>
+  <Link  to="/Library">
+    <img src={stromae} alt='Stromae'/>
+    </Link>
     <h2>Stromae</h2>
-    <h3>  </h3>
-    <p></p>
+    <h3>Papaoutai</h3>
+    <p>Album: Racine Carrée</p>
   </div>
 </div>
-      
+
       <footer className="footer">
         <div className="footer-content">
           <div className="footer-left">

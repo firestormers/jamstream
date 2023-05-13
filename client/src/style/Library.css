@@ -6,11 +6,11 @@
 background-color: rgb(216, 216, 216);
    background-Size: 'cover';
     background-Position: 'center';
-  width : 196vh;
+  width :  200.9vh;
   height: 190vh;
   align-Items : center ;
   justify-Content: 'center';
-  margin-Left : 30px
+  margin-Left : 22px
 }
 
 .library-item {
@@ -184,8 +184,8 @@ background-color: rgb(216, 216, 216);
 
 background-color: rgb(216, 216, 216);
 
-margin-left: 30px;
-margin-right: 31px;
+margin-left: 22px;
+margin-right: 7px;
 
 }
 .input{

@@ -59,7 +59,8 @@ const Library = ({ data, setData }) => {
         
         {data
           .filter((song) =>
-            song.title.toLowerCase().includes(search.toLowerCase())
+            song.title.toLowerCase().includes(search.toLowerCase()) 
+       
           )
           .map((e) => {
             const isLiked = liked[e.idsongs];
