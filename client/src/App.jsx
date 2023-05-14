@@ -4,8 +4,8 @@ import { BrowserRouter,  Route , Routes , Link } from 'react-router-dom';
 import Upload from "./components/Upload.jsx"
 import Library from "./components/Library.jsx"
 import Home from './components/Home.jsx';
-import Siginup from "./Siginup.jsx";
-import Register from "./Register.jsx"
+import Siginup from "./components/Siginup.jsx";
+import Register from "./components/Register.jsx"
 import axios from 'axios'
 import Chat from './components/chat';
 
@@ -38,6 +38,7 @@ get()
 
 
 return (
+  
 <BrowserRouter>
 
      
@@ -45,6 +46,7 @@ return (
 <div className="App" >
         <nav>
           <ul>
+         
             <li> 🎹  𝐉𝐚𝐦𝐒𝐭𝐫𝐞𝐚𝐦    </li>
             <li><Link  to="/home">Home</Link ></li>
             <li><Link  to="/upload"> 🎙️ Upload</Link ></li>
@@ -59,7 +61,7 @@ return (
        <Routes>
        {isLoggedIn &&    <> 
          <Route path="/home" element={<Home  data = {data} username={props.username} />}  />
-         <Route path="/upload" element={<Upload  data = {data}  />} />
+         <Route path="/upload" element={<Upload  data = {data}   setData={ setData}/>} />
          <Route path="/library" element={<Library data = {data}  />} /> 
          <Route path="/chat" element={<Chat username={d} />}/></>}
          <Route path="/" element={<Siginup  change={change} users={users} />} />

@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import "../style/Upload.css"
+import one from '../assets/music1.gif'
+const Upload = ({data,setData}) => {
 
-const Upload = () => {
+  const [title, setTitle] = useState("");
+  const [artist, setArtist] = useState("");
+  const [audioUrl, setAudioUrl] = useState("");
+  const [createdAt, setCreatedAt] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+  const [showForm, setShowForm] = useState(false);
+ 
 
-  const [title, setTitle] = useState("")
-  const [artist, setArtist] = useState("")
-  const [audioUrl, setAudioUrl] = useState("")
-  const [createdAt, setCreatedAt] = useState("")
-  const [imageUrl, setImageUrl] = useState("")
-  
   const uploadFile = async (file) => {
     const form = new FormData()
     form.append('file', file)
@@ -30,50 +32,60 @@ const Upload = () => {
       created_at: createdAt
     };
     axios.post("http://localhost:4000/post", newSong)
-      .then((res) => console.log(res))
+      .then((res) => {
+        console.log(res);
+        setTitle("");
+        setArtist("");
+        setAudioUrl("");
+        setCreatedAt("");
+        setImageUrl("");
+        setShowForm(false)
+        setData([newSong, ...data]);
+        alert("song added successfully !")
+      })
       .catch((err) => {
         console.log(err);
       })
   }
-  const handleAudioChange = e => {
-    setAudioUrl(e.target.files[0])
-  }
-  
-  const handleImageChange = e => {
-    setImageUrl(e.target.files[0])
-  }
-  
-
 
   return (
-    <div   className='upload' >
+<div className='upload' style={{
+  backgroundImage: `url(${one})`,
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+  height: '120vh',
 
-   <div className="form-container"   >
-   <form >
-  <label htmlFor="title">Title:</label>
-   <input type="text" id="title" name="title" value={title} onChange={(e) => setTitle(e.target.value)}  />
-
-   <label htmlFor="artist">Artist:</label>
-  <input type="text" id="artist" name="artist" value={artist} onChange={(e) => setArtist(e.target.value)}  />
-
-  <label htmlFor="audio">Audio:</label>
-    <input type="file" id="audio" name="audio" onChange={handleAudioChange} />
-     <br/>
-     <label htmlFor="createdAt">Created At:</label>
-     <input type="datetime-local" id="createdAt" value={createdAt} onChange={(e) => setCreatedAt(e.target.value)} />
-            <br/> 
-  <label htmlFor="image">Image:</label>
-   <input type="file" id="image" name="image"  onChange={handleImageChange} />
-
-       
-  <button type="submit" onClick={handleSubmit}  >Submit</button>
+}} >
+ 
+      <button onClick={() => setShowForm(prevState => !prevState)  } className='add'  
+  style={{ fontSize: '1.2rem', padding: '20px 40px'}}>Add Song</button>
    
-     </form>
+      {showForm && (
+        <div className="form-container">
+          <form onSubmit={handleSubmit}>
+     <label htmlFor="title">Title:</label>
+ <input type="text" id="title" name="title" value={title} onChange={(e) => setTitle(e.target.value)}  />
+
+      <label htmlFor="artist">Artist:</label>
+ <input type="text" id="artist" name="artist" value={artist} onChange={(e) => setArtist(e.target.value)}  />
+
+            <label htmlFor="audio">Audio:</label>
+  <input type="file" id="audio" name="audio" onChange={(e)=> {setAudioUrl(e.target.files[0]) }} />
+            <br/>
+            <label htmlFor="createdAt">Created At:</label>
+            <input type="datetime-local" id="createdAt" value={createdAt} onChange={(e) => setCreatedAt(e.target.value)} />
+            <br/> 
+
+ <label htmlFor="image">Image:</label> <input type="file" id="image" name="image"  onChange={(e)=> {setImageUrl(e.target.files[0])}} />
+
+            <button type="submit">Submit</button>
+            <button type="button" onClick={() => setShowForm(false)}>Cancel</button>
+            
+          </form>
         </div>
-    
-    
+      )}
     </div>
-  );
-};
+  )
+}
 
 export default Upload;

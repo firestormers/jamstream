@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../style/chat.css';
@@ -17,6 +16,21 @@ const Feedback = (props) => {
       setMessages(response.data);
     } catch (error) {
       console.log('Error:', error);
+    }
+  };
+
+  const deleteFeedback = (feedbackId) => {
+    if (window.confirm('Are you sure you want to delete this feedback?')) {
+      axios
+        .delete(`http://localhost:4000/feedback/${feedbackId}`)
+        .then((response) => {
+          console.log(response.data);
+          const updatedMessages = messages.filter((message) => message.id !== feedbackId);
+          setMessages(updatedMessages);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     }
   };
 
@@ -67,7 +81,7 @@ const Feedback = (props) => {
         {messages.map((message) => (
           <div className="message" key={message.id}>
             <p>{message.text}</p>
-            <br></br>
+            <br />
             <p>By {props.username}</p>
             <button
               className="edit-button"
@@ -79,6 +93,9 @@ const Feedback = (props) => {
               }}
             >
               Edit
+            </button>
+            <button className="delete-button" onClick={() => deleteFeedback(message.id)}>
+              Delete
             </button>
           </div>
         ))}

@@ -7,12 +7,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 const Library = ({ data, setData }) => {
-  const [showAudioBar, setShowAudioBar] = useState(false);
+  const [Show, setShow] = useState(false);
   const [audioBarData, setAudioBarData] = useState(null);
   const [liked, setLiked] = useState({})
   const [search, setSearch] = useState("");
+  
 
   const handleDelete = (songId) => {
+    if (window.confirm("Are you sure you want to delete this song?")) {
     axios
       .delete(`http://localhost:4000/delete/${songId}`)
       .then(() => {
@@ -20,30 +22,32 @@ const Library = ({ data, setData }) => {
         setData(updatedSongs);
       })
       .catch((error) => console.error(error));
+    }
   };
 
   const handlePlay = (songId) => {
     const song = data.find((item) => item.idsongs === songId);
     setAudioBarData(song);
-    setShowAudioBar(true);
+    setShow(true);
   };
   const handleLike = (songId) => {
     axios
       .post(`http://localhost:4000/like/${songId}`)
       .then((response) => {
-        console.log(response.data.liked)
-        setLiked(prevLiked => {
-          const updatedLiked = {...prevLiked}
-          updatedLiked[songId] = response.data.liked
-          return updatedLiked
+        setLiked((prevLiked) => {
+          const updatedLiked = { ...prevLiked };
+          updatedLiked[songId] = response.data.liked;
+          return updatedLiked;
         });
+
+      
       })
-      .catch((error) => console.error(error))
+      .catch((error) => console.error(error));
   };
   
   return (
     <>
-         <div className="search-container"  >
+         <div className="search"  >
         <input
          className="input"
           type="text"
@@ -65,7 +69,7 @@ const Library = ({ data, setData }) => {
           .map((e) => {
             const isLiked = liked[e.idsongs];
             return (
-              <div className="library-item" key={e.idsongs}>
+              <div className="songs" key={e.idsongs}>
                 <img src={e.image} alt="album cover" />
                 <p>{e.artist}</p>
                 <p>{e.title}</p>
@@ -74,7 +78,7 @@ const Library = ({ data, setData }) => {
                   ▶
                 </button>
                 <button
-                  className="delete-btn"
+                  className="delete"
                   onClick={() => handleDelete(e.idsongs)}
                 >
                   ✖
@@ -89,9 +93,9 @@ const Library = ({ data, setData }) => {
               </div>
             );
           })}
-        {showAudioBar && (
-          <div className="audio-bar-container">
-            <AudioBar song={audioBarData} onClose={() => setShowAudioBar(false)} />
+        {Show && (
+          <div className="audio">
+            <AudioBar song={audioBarData} onClose={() => setShow(false)} />
           </div>
         )}
       </div>

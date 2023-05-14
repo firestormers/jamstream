@@ -1,31 +1,28 @@
-import React, { useRef, useEffect } from "react";
-import "../style/Library.css";
+import { useEffect, useRef } from "react";
 
 const AudioBar = ({ song, onClose }) => {
   const audioRef = useRef(null);
 
   useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.load()
-      audioRef.current.addEventListener("canplay", () => {
-        audioRef.current.play()
+    const audio = audioRef.current
+    audio.load()
+    audio.play()
+      .catch((err) => {
+        console.log(err)
       });
-    }
+
     return () => {
-      if (audioRef.current) {
-        audioRef.current.removeEventListener("canplay", () => {
-          audioRef.current.play()
-        });
-      }
-    };
-  }, []);
+      audio.pause()
+    }
+  }, [])
 
   return (
-    <div className="audio-bar">
+    <div>
       <audio ref={audioRef} src={song.audio} controls />
-      <button onClick={onClose}>Close</button>
+      <button onClick={onClose} className="close" >Close</button>
     </div>
   );
 };
 
 export default AudioBar;
+

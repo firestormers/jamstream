@@ -1,8 +1,8 @@
-import './style/App.css';
+import '../style/App.css';
 import React , { useState } from "react"
 import { useNavigate } from "react-router-dom";
 import Axios from 'axios'
-import './style/log.css';
+import '../style/log.css';
 
 function Regis(props) {
     const [email, setEmail] = useState('');
